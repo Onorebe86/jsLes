@@ -1,14 +1,15 @@
+function checkUser(user) {
+	age = user.age >= 18 && user.age <= 35;
+	normal = user.paid && !user.blocked && !user.badUsername;
+	(age && (user.isAdmin || normal)) ? console.log('Доступ разрешен') : console.log('Доступ запрещен')
+}
+
 let user = {
-	age:18,
-	paid:true,
-	blocked:false,
-	badUsername:false,
-	isAdmin:false
+	age: 18,
+	paid: true,
+	blocked: false,
+	badUsername: false,
+	isAdmin: false
 };
 
-user.isAdmin === false && user.age >= 18 && user.age <= 35 &&
-user.paid === true && user.badUsername === false &&
-user.blocked===false? console.log('Доступ разрешен'):user.isAdmin===true &&
-user.age>=18 && user.age<=35? console.log('Доступ разрешен'):
-console.log('Доступ запрещен');
-
+checkUser(user);
