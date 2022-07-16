@@ -9,20 +9,20 @@ function Calc() {
     history = []
   }
 
-  this.operation = function (oper) {
-    arg1 = Number(oper.split(" ")[0])
-    arg2 = Number(oper.split(" ")[2])
-    symb = oper.split(" ")[1]
+  this.operation = function (expression) {
+    operand1 = Number(expression.split(" ")[0])
+    operand2 = Number(expression.split(" ")[2])
+    operator = expression.split(" ")[1]
     history.push({
-      operation: symb,
-      operands: [arg1, arg2]
+      operation: operator,
+      operands: [Number(operand1), Number(operand2)] //Oперанды приведены к типу Number на строках 13-14
     })
-    if (!(symb in operations)) {
+    if (!(operator in operations)) {
       console.log('Not a function')
-      return arg1 // ?
+      return operand1 // ?
     }
     else {
-      result = operations[symb](arg1, arg2)
+      result = operations[operator](operand1, operand2)
       console.log(result)
       return result
     }
